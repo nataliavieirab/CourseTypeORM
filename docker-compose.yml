@@ -1,0 +1,18 @@
+version: "3"
+services:
+  db:
+    image: postgres:10.7-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PG_USER: root
+      PG_PASSWORD: root
+    volumes:
+      - postgres108:/var/lib/postgres3/data3
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+      - ./:/docker-entrypoint-initdb.d 
+
+volumes:
+  postgres108:
